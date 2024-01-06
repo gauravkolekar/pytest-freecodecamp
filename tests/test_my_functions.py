@@ -26,8 +26,8 @@ def test_divide_by_zero():
     with pytest.raises(ZeroDivisionError):
         my_functions.divide(number_one=10, number_two=0)
 
+
 @pytest.mark.slow
 def test_very_slow():
     time.sleep(5)
     assert 5 == my_functions.divide(number_one=10, number_two=2)
-
