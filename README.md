@@ -1,2 +1,2 @@
-# pytest-freecodecamp
-Pytest tutorial on freecodecamp youtube channel
+# pytest-notes
+Pytest from different learning platforms
