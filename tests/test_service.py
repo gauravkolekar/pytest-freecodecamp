@@ -3,11 +3,13 @@ import requests
 import src.service as service
 import unittest.mock as mock
 
+
 @mock.patch("src.service.get_user_from_db")
 def test_get_user_from_db(mock_get_user_from_db):
     mock_get_user_from_db.return_value = "Mocked Alice"
     username = service.get_user_from_db(1)
     assert username == "Mocked Alice"
+
 
 @mock.patch("requests.get")
 def test_get_users(mock_get):
@@ -18,6 +20,7 @@ def test_get_users(mock_get):
     data = service.get_users()
     assert data == {"id": 1, "name": "John Doe"}
 
+
 @mock.patch("requests.get")
 def test_get_users_error(mock_get):
     mock_response = mock.Mock()
@@ -25,4 +28,3 @@ def test_get_users_error(mock_get):
     mock_get.return_value = mock_response
     with pytest.raises(requests.HTTPError):
         service.get_users()
-
